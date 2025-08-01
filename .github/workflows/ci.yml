@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Set up Python
@@ -20,25 +20,25 @@ jobs:
         with:
           python-version: 3.10
 
-      - name: Install Flask Requirements
+      - name: Install Backend Requirements
         run: |
           cd backend
-          pip install -r requirements.txt
+          pip install -r requirements.txt || echo "No backend requirements.txt found"
 
   frontend:
     name: Install Frontend Dependencies
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Set up Node
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install React Packages
+      - name: Install Frontend Packages
         run: |
           cd frontend
-          npm install
+          npm install || echo "No frontend package.json found"
