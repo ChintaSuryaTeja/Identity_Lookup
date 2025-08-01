@@ -1,0 +1,44 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend:
+    name: Install Backend Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install Flask Requirements
+        run: |
+          cd backend
+          pip install -r requirements.txt
+
+  frontend:
+    name: Install Frontend Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install React Packages
+        run: |
+          cd frontend
+          npm install
