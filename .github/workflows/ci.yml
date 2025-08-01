@@ -18,12 +18,16 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10
+          python-version: '3.10'
 
       - name: Install Backend Requirements
         run: |
-          cd backend
-          pip install -r requirements.txt || echo "No backend requirements.txt found"
+          if [ -f backend/requirements.txt ]; then
+            cd backend
+            pip install -r requirements.txt
+          else
+            echo "No backend/requirements.txt found. Skipping."
+          fi
 
   frontend:
     name: Install Frontend Dependencies
@@ -36,9 +40,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
 
       - name: Install Frontend Packages
         run: |
-          cd frontend
-          npm install || echo "No frontend package.json found"
+          if [ -f frontend/package.json ]; then
+            cd frontend
+            npm install
+          else
+            echo "No frontend/package.json found. Skipping."
+          fi
