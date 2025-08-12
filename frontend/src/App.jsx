@@ -1,15 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-import PhotoUpload from './components/photoUpload.jsx';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/navBar";
+import PhotoUpload from "./components/photoUpload";
+import Login from "./components/Login.jsx";
+import Register from "./components/Register.jsx";
+import "./App.css";
 
 function App() {
   return (
-    <div className="p-8">
-      <PhotoUpload />
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<PhotoUpload />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
   );
 }
 

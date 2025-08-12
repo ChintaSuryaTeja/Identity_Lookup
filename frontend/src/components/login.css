@@ -1,0 +1,126 @@
+
+.login-form {
+  background-color: #2f3136;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+  width: 100%;
+  max-width: 480px;
+  
+}
+
+.login-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.login-subtitle {
+  color: #b9bbbe;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  color: #b9bbbe;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  background-color: #40444b;
+  border: 1px solid #202225;
+  border-radius: 9px;
+  color: #dcddde;
+  font-size: 1rem;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #7289da;
+}
+
+.form-input::placeholder {
+  color: #72767d;
+}
+
+.login-button {
+  width: 100%;
+  background-color: #5865f2;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.17s ease;
+  margin-bottom: 0.5rem;
+}
+
+.login-button:hover {
+  background-color: #4752c4;
+}
+
+.login-button:active {
+  background-color: #3c45a5;
+}
+
+.login-button:disabled {
+  background-color: #4f545c;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: #f04747;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d84040;
+}
+
+.login-link {
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.login-link-text {
+  color: #b9bbbe;
+  font-size: 0.875rem;
+}
+
+.login-link a {
+  color: #00aff4;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.forgot-password {
+  color: #00aff4;
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
