@@ -1,31 +1,44 @@
-
-
-.login-form {
-
+/* ===== General Container ===== */
+.registration-container {
   background-color: #2f3136;
-  padding: 45px 100px ;
+  padding: 65px;
   border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
-  width: 100%;
-  max-width: 680px;
-  box-sizing: border-box;
+  width: 400px;
+  box-shadow: 0 2px 90px rgb(78, 107, 238);
+  align-items: center;
 }
 
-.login-title {
-  color: #ffffff;
+/* ===== Card Styling ===== */
+.registration-card {
+  align-items: centre;
+  padding: 32px;
+
+  
+}
+
+/* ===== Header ===== */
+.card-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.card-title {
+  color: #fff;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: bold;
+  text-shadow: 0 12px 110px #fff;
   margin-bottom: 8px;
-  text-align: center;
-  line-height: 1.2;
 }
 
-.login-subtitle {
+.card-subtitle {
+  font-size: 14px;
   color: #b9bbbe;
-  font-size: 16px;
-  margin-bottom: 20px;
-  text-align: center;
-  line-height: 1.4;
+}
+
+/* ===== Form Styling ===== */
+.registration-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group {
@@ -34,160 +47,161 @@
 
 .form-label {
   display: block;
-  color: #b9bbbe;
   font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  margin-bottom: 8px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #b9bbbe65;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b9bbbe;
 }
 
 .form-input {
   width: 100%;
-  background-color: #40444b;
-  border: 1px solid #202225;
-  border-radius: 3px;
-  color: #dcddde;
-  font-size: 16px;
-  height: 40px;
-  width: 120% ;
-  padding: 10px;
-  transition: border-color 0.15s ease-in-out;
-  box-sizing: border-box;
+
+  background-color: #202225;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #fff;
+  outline: none;
 }
 
 .form-input:focus {
-  outline: none;
-  border-color: #7289da;
+  border: 1px solid #5865f2;
 }
 
-.form-input::placeholder {
-  color: #72767d;
-}
-
-.login-button {
-  width: 100%;
-  background-color: #5865f2;
-  color: #ffffff;
-  border: none;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 500;
-  height: 44px;
-  cursor: pointer;
-  transition: background-color 0.17s ease-in-out;
-  margin-bottom: 8px;
-  box-sizing: border-box;
-}
-
-.login-button:hover {
-  background-color: #4752c4;
-}
-
-.login-button:active {
-  background-color: #3c45a5;
-}
-
-.login-button:disabled {
-  background-color: #4752c4;
-  cursor: not-allowed;
-  opacity: 0.6;
+/* ===== Error Handling ===== */
+.error {
+  border: 1px solid #ed4245;
 }
 
 .error-message {
-  background-color: #ed4245;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 3px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  text-align: center;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ed4245;
+  gap: 4px;
 }
 
+/* ===== Password Strength ===== */
+.password-strength {
+  margin-top: 6px;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 4px;
+}
+
+.strength-bar {
+  height: 4px;
+  flex: 1;
+  background-color: #4f545c;
+  border-radius: 2px;
+}
+
+.strength-bar.active {
+  background-color: #5865f2;
+}
+
+.strength-text {
+  font-size: 12px;
+  color: #b9bbbe;
+  margin-top: 4px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  padding: 10px;
+  background-color: #5865f2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #4752c4;
+}
+
+.btn:disabled {
+  background-color: #4f545c;
+  cursor: not-allowed;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #5865f2, #4752c4);
+}
+
+/* ===== Password Toggle ===== */
+.password-toggle {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #b9bbbe;
+}
+
+/* ===== Success State ===== */
+.success-content {
+  text-align: center;
+}
+
+.success-icon {
+  background-color: #3ba55d;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.success-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.success-text {
+  font-size: 14px;
+  color: #b9bbbe;
+  margin-bottom: 16px;
+}
+
+/* ===== Login Link ===== */
 .login-link {
   margin-top: 20px;
   text-align: center;
-}
-
-.login-link-text {
-  color: #b9bbbe;
   font-size: 14px;
-  line-height: 1.4;
 }
 
-.login-link-text a {
+.login-link .link {
   color: #00aff4;
   text-decoration: none;
 }
 
-.login-link-text a:hover {
+.login-link .link:hover {
   text-decoration: underline;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .login-container {
-    padding: 12px;
-  }
-  
-  .login-form {
-    padding: 24px;
-    max-width: 100%;
-  }
-  
-  .login-title {
-    font-size: 22px;
-  }
-  
-  .login-subtitle {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .login-container {
-    padding: 8px;
-    align-items: flex-start;
-    padding-top: 20px;
-  }
-  
-  .login-form {
-    padding: 20px;
-    border-radius: 6px;
-  }
-  
-  .login-title {
-    font-size: 20px;
-    margin-bottom: 6px;
-  }
-  
-  .login-subtitle {
-    font-size: 14px;
-    margin-bottom: 16px;
-  }
-  
-  .form-group {
-    margin-bottom: 16px;
-  }
-  
-  .form-input {
-    font-size: 16px; /* Prevents zoom on iOS */
-    height: 42px;
-  }
-  
-  .login-button {
-    height: 46px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 320px) {
-  .login-form {
-    padding: 16px;
-  }
-  
-  .form-input {
-    padding: 8px;
-  }
 }
