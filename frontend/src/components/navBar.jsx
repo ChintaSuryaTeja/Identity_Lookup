@@ -4,6 +4,7 @@ import logoImage from "../assets/centificglobal_logo.jpeg";
 import "./navBar.css"; // import CSS file
 import { Link } from "react-router-dom";
 
+
 const NavBar = () => {
   return (
     <nav className="navbar">
@@ -13,13 +14,18 @@ const NavBar = () => {
         <h1 className="navbar-title">Centific</h1>
       </div>
 
+     
+
       {/* Right Section */}
       <div className="navbar-right">
         <Link to="/login" className="navbar-btn">
             <LogIn size={18} /> Login
         </Link>
         <button className="navbar-btn">
-          <User size={18} />
+          <Link to="/results" className="navbar-btn">
+            <User size={18} />
+        </Link>
+          
         </button>
       </div>
     </nav>

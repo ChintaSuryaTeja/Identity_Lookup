@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import './photoUpload.css'
+import { useNavigate } from 'react-router-dom';
+import './photoUpload.css';
+import HistorySidebar from './HistorySidebar';
 
 const PhotoUpload = () => {
   const [file, setFile] = useState(null);
   const [name, setName] = useState('');
   const [errors, setErrors] = useState({ name: '', file: '' });
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [searchHistory, setSearchHistory] = useState([]);
+  const navigate = useNavigate();
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -53,52 +58,79 @@ const PhotoUpload = () => {
       console.log('Submitting:', name, file);
       // Send formData to backend here...
 
-      // Reset
-      setName('');
-      setFile(null);
+      // Navigate to results page
+      navigate('/results');
+      
+      // Reset form
+      // setName('');
+      // setFile(null);
     }
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleSelectHistory = (item) => {
+    // Handle history item selection
+    console.log('Selected history item:', item);
+  };
+
   return (
-    <form onSubmit={handleSubmit} class="form-container">
-  <div class="form-group">
-    <label class="form-label">Name</label>
-    <input
-      type="text"
-      value={name}
-      onChange={handleNameChange}
-      class="form-input"
-    />
-    {errors.name && <p class="error-text">{errors.name}</p>}
-  </div>
+    <div className="app-container">
+      <button className="toggle-sidebar-btn" onClick={toggleSidebar}>
+        ☰
+      </button>
+      
+      <HistorySidebar 
+        isOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        history={searchHistory}
+        onSelectHistory={handleSelectHistory}
+      />
+      
+      <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+        <form onSubmit={handleSubmit} className="form-container">
+          <div className="form-group">
+            <label className="form-label">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={handleNameChange}
+              className="form-input"
+            />
+            {errors.name && <p className="error-text">{errors.name}</p>}
+          </div>
 
-  <div
-    onDrop={handleDrop}
-    onDragOver={(e) => e.preventDefault()}
-    class="drop-zone"
-  >
-    {file ? (
-      <p>{file.name}</p>
-    ) : (
-      <p>Drag & drop an image here, or click to select one.</p>
-    )}
-    <input
-      type="file"
-      onChange={handleFileSelect}
-      accept="image/*"
-      class="file-input-hidden"
-      id="fileInput"
-    />
-    <label for="fileInput" class="file-label">
-      Choose File
-    </label>
-    {errors.file && <p class="error-text">{errors.file}</p>}
-  </div>
+          <div
+            onDrop={handleDrop}
+            onDragOver={(e) => e.preventDefault()}
+            className="drop-zone"
+          >
+            {file ? (
+              <p>{file.name}</p>
+            ) : (
+              <p>Drag & drop an image here, or click to select one.</p>
+            )}
+            <input
+              type="file"
+              onChange={handleFileSelect}
+              accept="image/*"
+              className="file-input-hidden"
+              id="fileInput"
+            />
+            <label htmlFor="fileInput" className="file-label">
+              Choose File
+            </label>
+            {errors.file && <p className="error-text">{errors.file}</p>}
+          </div>
 
-  <button type="submit" class="submit-button">
-    Upload
-  </button>
-</form>
+          <button type="submit" className="submit-button">
+            Upload
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 
